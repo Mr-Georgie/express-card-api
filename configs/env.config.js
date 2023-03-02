@@ -9,6 +9,11 @@ const env = {
   PASSWORD: process.env.PASSWORD,
   CHECKKEY: process.env.CHECKKEY,
   PORT: process.env.PORT,
+  DBHOST: process.env.HOST,
+  DBUSER: process.env.DBUSER,
+  DBPASS: process.env.DBPASS,
+  DBSSLMODE: process.env.DBSSLMODE,
+  DBNAME: process.env.DBNAME,
 };
 
 export default env;
