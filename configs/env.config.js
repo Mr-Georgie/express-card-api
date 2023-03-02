@@ -5,7 +5,7 @@ dotenv.config({ path: path.resolve("env", ".env") });
 
 const env = {
   DEALERCODE: process.env.DEALERCODE,
-  USERNAME: process.env.USERNAME,
+  USERNAME: process.env.FLWUSERNAME,
   PASSWORD: process.env.PASSWORD,
   CHECKKEY: process.env.CHECKKEY,
   PORT: process.env.PORT,
