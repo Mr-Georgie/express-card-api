@@ -14,6 +14,10 @@ const env = {
   DBPASS: process.env.DBPASS,
   DBSSLMODE: process.env.DBSSLMODE,
   DBNAME: process.env.DBNAME,
+  DBNAME2: process.env.DBNAME2,
+  DBHOST2: process.env.DBHOST2,
+  DBUSER2: process.env.DBUSER2,
+  DBPASS2: process.env.DBPASS2,
 };
 
 export default env;
