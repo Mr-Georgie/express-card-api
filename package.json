@@ -1,0 +1,23 @@
+{
+  "name": "moka-flw-proxy",
+  "version": "1.0.0",
+  "description": "A simulation of moka-flw integration",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Georgie",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3",
+    "mysql2": "^3.1.2",
+    "node-fetch": "^3.3.0",
+    "sequelize": "^6.29.0"
+  }
+}
