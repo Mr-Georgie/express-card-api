@@ -9,7 +9,7 @@ const env = {
   PASSWORD: process.env.PASSWORD,
   CHECKKEY: process.env.CHECKKEY,
   PORT: process.env.PORT,
-  DBHOST: process.env.HOST,
+  DBHOST: process.env.DBHOST,
   DBUSER: process.env.DBUSER,
   DBPASS: process.env.DBPASS,
   DBSSLMODE: process.env.DBSSLMODE,
