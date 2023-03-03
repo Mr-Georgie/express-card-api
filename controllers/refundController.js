@@ -8,6 +8,14 @@ const provideAuthURL = providerURL.Refund;
 const { PaymentDealerAuthentication } = flwCredentials;
 
 const refundController = async (req, res) => {
+  if (!req.body.transactionReference) {
+    const message = JSON.stringify({
+      message: "Failed: Please provide a transaction reference",
+      code: "RR-04",
+    });
+    return res.status(400).send(message);
+  }
+
   const refundOrVoid = await voidRefundLogicController(req, "refund");
 
   if (refundOrVoid !== "refund") {
