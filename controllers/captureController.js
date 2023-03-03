@@ -38,8 +38,6 @@ const captureController = async (req, res) => {
 
         await CardParam.create(newCardParam);
 
-        console.log("success 3");
-
         statusCode === 200
           ? updateTransaction(newCardParam, Transaction)
           : null;

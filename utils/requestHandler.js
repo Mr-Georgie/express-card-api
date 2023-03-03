@@ -13,7 +13,7 @@ const formatAuthRequest = (request) => {
 
 const formatCaptureRequest = (request) => {
   return {
-    VirtualPosOrderId: "",
+    VirtualPosOrderId: request.body.orderId,
     Amount: request.body.amount,
     OtherTrxCode: request.body.transactionReference,
     ClientIP: request.body.customerIp,
@@ -22,7 +22,7 @@ const formatCaptureRequest = (request) => {
 
 const formatVoidRequest = (request) => {
   return {
-    VirtualPosOrderId: "",
+    VirtualPosOrderId: request.body.orderId,
     VoidRefundReason: request.body.voidRefundReason,
     OtherTrxCode: request.body.transactionReference,
     ClientIP: request.body.customerIp,
@@ -31,7 +31,7 @@ const formatVoidRequest = (request) => {
 
 const formatRefundRequest = (request) => {
   return {
-    VirtualPosOrderId: "",
+    VirtualPosOrderId: request.body.orderId,
     Amount: request.body.amount,
     OtherTrxCode: request.body.transactionReference,
   };
