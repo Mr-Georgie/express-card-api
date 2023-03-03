@@ -49,7 +49,11 @@ const captureController = async (req, res) => {
         res.status(400).send(formattedError);
       });
   } catch (error) {
-    res.status(500).send("Transaction not found " + error);
+    const message = JSON.stringify({
+      message: "Failed: Transaction not found or not valid",
+      code: "RR-04",
+    });
+    return res.status(400).send(message);
   }
 };
 

@@ -8,7 +8,7 @@ const provideAuthURL = providerURL.Refund;
 const { PaymentDealerAuthentication } = flwCredentials;
 
 const refundController = async (req, res) => {
-  if (!req.body.transactionReference) {
+  if (req.body.transactionReference === "null") {
     const message = JSON.stringify({
       message: "Failed: Please provide a transaction reference",
       code: "RR-04",
