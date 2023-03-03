@@ -1,17 +1,13 @@
 import fetch from "node-fetch";
 import { flwCredentials, providerURL } from "../configs/general.config.js";
 import fetchOptions from "../utils/fetchOptions.js";
+import { formatRefundRequest } from "../utils/requestHandler.js";
 
 const provideAuthURL = providerURL.Refund;
 const { PaymentDealerAuthentication } = flwCredentials;
 
 const refundController = async (req, res) => {
-  const productRequest = {};
-
-  productRequest.VirtualPosOrderId = req.body.orderId;
-  productRequest.Amount = req.body.amount;
-  productRequest.OtherTrxCode = req.body.transactionReference;
-  productRequest.ClientIP = req.body.customerIp;
+  const productRequest = formatRefundRequest(req);
 
   const providerPayload = {
     PaymentDealerAuthentication: PaymentDealerAuthentication,

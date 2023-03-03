@@ -29,4 +29,17 @@ const formatVoidRequest = (request) => {
   };
 };
 
-export { formatAuthRequest, formatCaptureRequest, formatVoidRequest };
+const formatRefundRequest = (request) => {
+  return {
+    VirtualPosOrderId: "",
+    Amount: request.body.amount,
+    OtherTrxCode: request.body.transactionReference,
+  };
+};
+
+export {
+  formatAuthRequest,
+  formatCaptureRequest,
+  formatVoidRequest,
+  formatRefundRequest,
+};
