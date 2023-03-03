@@ -1,6 +1,6 @@
 const TransactionModel = (sequelize, Sequelize) => {
   const Transaction = sequelize.define(
-    "transactions_g",
+    "transactions",
     {
       tx_ref: {
         type: Sequelize.STRING,
@@ -39,11 +39,23 @@ const TransactionModel = (sequelize, Sequelize) => {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      time_in: {
+      time_authorized: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: true,
       },
-      time_out: {
+      time_captured: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
+      time_voided: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
+      time_refunded: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
+      tx_status: {
         type: Sequelize.STRING,
         allowNull: false,
       },

@@ -24,7 +24,7 @@ const authController = async (req, res) => {
     PaymentDealerRequest: { ...productRequest, ...PaymentDealerRequest },
   };
 
-  const cardParam = saveCardParamBeforeAuth(req, "authorize");
+  const cardParam = saveCardParamBeforeAuth(req);
 
   try {
     await CardParam.create(cardParam);

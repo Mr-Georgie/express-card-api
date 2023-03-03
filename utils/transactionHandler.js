@@ -13,27 +13,60 @@ const saveTransaction = (cardParam) => {
     country: cardParamBody.country,
     narration: cardParamBody.narration,
     mask: cardParamBody.cardNo,
+    time_authorized: dateTime(),
+    tx_status: "Authorized",
     time_in: dateTime(),
     time_out: dateTime(),
-    response_message: "Transaction Authorized",
+    response_message: "Successful",
     response_code: "00",
   };
 };
 
-const updateTransaction = (cardParam, transactionInstance, isVoided) => {
-  transactionInstance.update(
-    {
-      response_message: isVoided
-        ? "Transaction Voided"
-        : "Transaction Captured",
-      time_out: dateTime(),
-    },
-    {
-      where: {
-        tx_ref: cardParam.tx_ref,
+const updateTransaction = (cardParam, transactionInstance, method) => {
+  if (method === "capture") {
+    transactionInstance.update(
+      {
+        response_message: "Successful",
+        time_captured: dateTime(),
+        tx_status: "Captured"
       },
-    }
-  );
+      {
+        where: {
+          tx_ref: cardParam.tx_ref,
+        },
+      }
+    );
+  }
+
+  if (method === "void") {
+    transactionInstance.update(
+      {
+        response_message: "Successful",
+        time_voided: dateTime(),
+        tx_status: "Voided",
+      },
+      {
+        where: {
+          tx_ref: cardParam.tx_ref,
+        },
+      }
+    );
+  }
+
+  if (method === "refund") {
+    transactionInstance.update(
+      {
+        response_message: "Successful",
+        time_refunded: dateTime(),
+        tx_status: "Refunded",
+      },
+      {
+        where: {
+          tx_ref: cardParam.tx_ref,
+        },
+      }
+    );
+  }
 };
 
 export { saveTransaction, updateTransaction };

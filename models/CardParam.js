@@ -1,6 +1,6 @@
 const CardParamModel = (sequelize, Sequelize) => {
   const CardParam = sequelize.define(
-    "card_params_g",
+    "card_params",
     {
       tx_ref: {
         type: Sequelize.STRING,

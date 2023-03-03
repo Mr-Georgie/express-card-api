@@ -2,7 +2,7 @@ import dateTime from "./formatDate.js";
 import maskCardNumber from "./maskCardNumber.js";
 import { failedResponse, successfulResponse } from "./responseHandler.js";
 
-const saveCardParamBeforeAuth = (request, method) => {
+const saveCardParamBeforeAuth = (request) => {
   const getRequest = request;
   getRequest.body.cardNo = maskCardNumber(request.body.cardNo);
   getRequest.body.cvv = null;
@@ -11,7 +11,7 @@ const saveCardParamBeforeAuth = (request, method) => {
     tx_ref: getRequest.body.transactionReference,
     external_ref: getRequest.body.externalReference,
     body: JSON.stringify(getRequest.body),
-    method: method,
+    method: "authorize",
     time_in: dateTime(),
     response: JSON.stringify({
       message: "Pending",

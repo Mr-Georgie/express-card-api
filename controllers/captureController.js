@@ -39,7 +39,7 @@ const captureController = async (req, res) => {
         await CardParam.create(newCardParam);
 
         statusCode === 200
-          ? updateTransaction(newCardParam, Transaction)
+          ? updateTransaction(newCardParam, Transaction, "capture")
           : null;
 
         res.status(statusCode).send(newCardParam.response);

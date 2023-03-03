@@ -5,6 +5,7 @@ import { saveCardParamAfterVoid } from "../utils/cardParamHandler.js";
 import fetchOptions from "../utils/fetchOptions.js";
 import { formatVoidRequest } from "../utils/requestHandler.js";
 import { updateTransaction } from "../utils/transactionHandler.js";
+import voidRefundLogicController from "./voidRefundLogicController.js";
 
 const provideAuthURL = providerURL.Void;
 const { PaymentDealerAuthentication } = flwCredentials;
@@ -12,6 +13,20 @@ const Transaction = db.transactions;
 const CardParam = db.cardParams;
 
 const voidController = async (req, res) => {
+  const refundOrVoid = await voidRefundLogicController(req, "refund");
+
+  if (refundOrVoid !== "void") {
+    if (refundOrVoid === "refund") {
+      const message = JSON.stringify({
+        message: "Failed: This transaction should be refunded",
+        code: "RR-04",
+      });
+      return res.status(400).send(message);
+    } else {
+      return res.status(400).send(refundOrVoid);
+    }
+  }
+
   try {
     const { dataValues: authorizedCard } = await CardParam.findOne(
       {
@@ -39,7 +54,7 @@ const voidController = async (req, res) => {
         await CardParam.create(newCardParam);
 
         statusCode === 200
-          ? updateTransaction(newCardParam, Transaction, "Void")
+          ? updateTransaction(newCardParam, Transaction, "void")
           : null;
 
         res.status(statusCode).send(newCardParam.response);

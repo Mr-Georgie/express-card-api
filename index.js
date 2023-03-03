@@ -6,7 +6,7 @@ import routes from "./routes/index.js";
 
 const api = express();
 
-const PORT = env.PORT || 3000;
+const PORT = env.PORT || 3001;
 
 api.use(bodyParser.json());
 api.use(bodyParser.urlencoded({ extended: true }));

@@ -17,9 +17,11 @@ const successfulResponse = (providerResponse, transactionReference) => {
   });
 };
 
-const failedResponse = (providerResponse, transactionReference) => {
+const failedResponse = (providerResponse, transactionReference, message) => {
   return JSON.stringify({
-    message: "Failed: Check provider response for more details",
+    message: message
+      ? message
+      : "Failed: Check provider response for more details",
     code: "RR-01",
     tx_ref: transactionReference,
     providerResponse: providerResponse ? providerResponse : {},
