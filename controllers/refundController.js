@@ -1,10 +1,10 @@
 import fetch from "node-fetch";
-import { flwCredentials, providerURL } from "../configs/general.config.js";
+import { appCredentials, providerURL } from "../configs/general.config.js";
 import fetchOptions from "../utils/fetchOptions.js";
 import { formatRefundRequest } from "../utils/requestHandler.js";
 
 const provideAuthURL = providerURL.Refund;
-const { PaymentDealerAuthentication } = flwCredentials;
+const { PaymentDealerAuthentication } = appCredentials;
 
 const refundController = async (req, res) => {
   const productRequest = formatRefundRequest(req);

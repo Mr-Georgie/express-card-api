@@ -1,5 +1,5 @@
 import fetch from "node-fetch";
-import { flwCredentials, providerURL } from "../configs/general.config.js";
+import { appCredentials, providerURL } from "../configs/general.config.js";
 import db from "../models/index.js";
 import { saveCardParamAfterVoid } from "../utils/cardParamHandler.js";
 import fetchOptions from "../utils/fetchOptions.js";
@@ -7,7 +7,7 @@ import { formatVoidRequest } from "../utils/requestHandler.js";
 import { updateTransaction } from "../utils/transactionHandler.js";
 
 const provideAuthURL = providerURL.Void;
-const { PaymentDealerAuthentication } = flwCredentials;
+const { PaymentDealerAuthentication } = appCredentials;
 const Transaction = db.transactions;
 const CardParam = db.cardParams;
 

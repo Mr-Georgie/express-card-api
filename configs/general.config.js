@@ -1,6 +1,6 @@
 import env from "./env.config.js";
 
-const flwCredentials = {
+const appCredentials = {
   PaymentDealerAuthentication: {
     DealerCode: env.DEALERCODE,
     Username: env.USERNAME,
@@ -22,4 +22,4 @@ const providerURL = {
   Void: "https://service.refmoka.com/PaymentDealer/DoVoid",
 };
 
-export { flwCredentials, providerURL };
+export { appCredentials, providerURL };

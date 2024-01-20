@@ -1,7 +1,7 @@
 {
-  "name": "moka-flw-proxy",
+  "name": "express-card-api",
   "version": "1.0.0",
-  "description": "A simulation of moka-flw integration",
+  "description": "A simulation of a card-api integration built with expressjs, mysql and sequelize",
   "main": "index.js",
   "type": "module",
   "scripts": {
